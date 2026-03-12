@@ -20,8 +20,8 @@ from sklearn.preprocessing import LabelEncoder
 # ── Config ───────────────────────────────────────────────────────────────────
 
 st.set_page_config(
-page_title=“Contador Virtual”,
-page_icon=“🧾”,
+page_title="Contador Virtual",
+page_icon="🧾",
 layout=“wide”,
 )
 
