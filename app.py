@@ -144,7 +144,7 @@ def train_model(df: pd.DataFrame):
 """Train a Random Forest classifier and return model + artifacts."""
 le_sector = LabelEncoder()
 df = df.copy()
-df[“sector_encoded”] = le_sector.fit_transform(df[“sector”])
+df["sector_encoded"] = le_sector.fit_transform(df[“sector”])
 
 
 X = df[FEATURE_COLS]
