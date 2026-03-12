@@ -1,11 +1,11 @@
-“””
+"""
 Contador Virtual - POC
 ML classifier (Random Forest) para clasificación fiscal de clientes.
 Reduce labor manual al automatizar la categorización fiscal.
 
 Run: streamlit run app.py
 Requirements: streamlit, scikit-learn, pandas, numpy, plotly
-“””
+"""
 
 import streamlit as st
 import pandas as pd
@@ -26,29 +26,29 @@ layout=“wide”,
 )
 
 REGIMEN_LABELS = [
-“Régimen Simplificado de Confianza (RESICO)”,
-“Régimen General de Ley (Actividad Empresarial)”,
-“Sueldos y Salarios”,
-“Régimen de Incorporación Fiscal (RIF)”,
-“Persona Moral - Régimen General”,
+"Régimen Simplificado de Confianza (RESICO)",
+"Régimen General de Ley (Actividad Empresarial)",
+"Sueldos y Salarios",
+"Régimen de Incorporación Fiscal (RIF)",
+"Persona Moral - Régimen General",
 ]
 
 SECTOR_OPTIONS = [
-“Comercio”,
-“Servicios Profesionales”,
-“Manufactura”,
-“Tecnología”,
-“Construcción”,
-“Alimentos y Bebidas”,
-“Transporte”,
-“Salud”,
+"Comercio",
+"Servicios Profesionales”,
+"Manufactura”,
+"Tecnología”,
+"Construcción”,
+"Alimentos y Bebidas”,
+"Transporte”,
+"Salud”,
 ]
 
 # ── Dummy data generation ────────────────────────────────────────────────────
 
 @st.cache_data
 def generate_training_data(n_samples: int = 2000, seed: int = 42) -> pd.DataFrame:
-“”“Generate synthetic fiscal data for training.”””
+"""Generate synthetic fiscal data for training."""
 rng = np.random.default_rng(seed)
 
 
@@ -128,20 +128,20 @@ return pd.DataFrame(records)
 # ── Model training ───────────────────────────────────────────────────────────
 
 FEATURE_COLS = [
-“ingreso_mensual_promedio”,
-“ingresos_anuales”,
-“num_facturas_mes”,
-“gastos_deducibles_mes”,
-“tiene_empleados”,
-“es_persona_moral”,
-“antiguedad_fiscal_anios”,
-“num_actividades_economicas”,
-“sector_encoded”,
+"ingreso_mensual_promedio",
+"ingresos_anuales",
+"num_facturas_mes",
+"gastos_deducibles_mes",
+"tiene_empleados",
+"es_persona_moral",
+"antiguedad_fiscal_anios",
+"num_actividades_economicas",
+"sector_encoded",
 ]
 
 @st.cache_resource
 def train_model(df: pd.DataFrame):
-“”“Train a Random Forest classifier and return model + artifacts.”””
+"""Train a Random Forest classifier and return model + artifacts."""
 le_sector = LabelEncoder()
 df = df.copy()
 df[“sector_encoded”] = le_sector.fit_transform(df[“sector”])
@@ -174,10 +174,10 @@ return clf, le_sector, accuracy, report, cm, X_test, y_test
 # ── UI ───────────────────────────────────────────────────────────────────────
 
 def main():
-st.title(“🧾 Contador Virtual”)
+st.title("🧾 Contador Virtual")
 st.markdown(
-“**POC** — Clasificador ML que sugiere el régimen fiscal óptimo “
-“para cada cliente, reduciendo trabajo manual del contador.”
+"**POC** — Clasificador ML que sugiere el régimen fiscal óptimo "
+"para cada cliente, reduciendo trabajo manual del contador."
 )
 
 
@@ -373,5 +373,5 @@ with tab_data:
     st.dataframe(df.head(100), use_container_width=True)
 
 
-if **name** == “**main**”:
+if __name__ == "__main__":
     main()
