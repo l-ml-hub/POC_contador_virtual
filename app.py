@@ -35,13 +35,13 @@ REGIMEN_LABELS = [
 
 SECTOR_OPTIONS = [
 "Comercio",
-"Servicios Profesionales”,
-"Manufactura”,
-"Tecnología”,
-"Construcción”,
-"Alimentos y Bebidas”,
-"Transporte”,
-"Salud”,
+"Servicios Profesionales",
+"Manufactura",
+"Tecnología",
+"Construcción",
+"Alimentos y Bebidas",
+"Transporte",
+"Salud",
 ]
 
 # ── Dummy data generation ────────────────────────────────────────────────────
