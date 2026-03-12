@@ -22,7 +22,7 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(
 page_title="Contador Virtual",
 page_icon="🧾",
-layout=“wide”,
+layout="wide",
 )
 
 REGIMEN_LABELS = [
